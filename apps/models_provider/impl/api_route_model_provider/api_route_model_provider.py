@@ -21,17 +21,21 @@ api_route_llm_credential = ApiRouteLLMModelCredential()
 api_route_embedding_credential = ApiRouteEmbeddingCredential()
 
 model_info_list = [
-    ModelInfo('gpt-4o', '', ModelTypeConst.LLM,
+    ModelInfo('deepseek-chat', _('DeepSeek-V3 via API Route'), ModelTypeConst.LLM,
               api_route_llm_credential, ApiRouteChatModel),
-    ModelInfo('gpt-4o-mini', '', ModelTypeConst.LLM,
+    ModelInfo('deepseek-reasoner', _('DeepSeek-R1 via API Route'), ModelTypeConst.LLM,
               api_route_llm_credential, ApiRouteChatModel),
-    ModelInfo('claude-3-5-sonnet-20241022', '', ModelTypeConst.LLM,
+    ModelInfo('claude-3-7-sonnet', _('Claude 3.7 Sonnet via API Route'), ModelTypeConst.LLM,
               api_route_llm_credential, ApiRouteChatModel),
-    ModelInfo('deepseek-chat', '', ModelTypeConst.LLM,
+    ModelInfo('gpt-5', _('OpenAI GPT-5 via API Route'), ModelTypeConst.LLM,
               api_route_llm_credential, ApiRouteChatModel),
-    ModelInfo('deepseek-reasoner', '', ModelTypeConst.LLM,
+    ModelInfo('o3', _('OpenAI o3 via API Route'), ModelTypeConst.LLM,
               api_route_llm_credential, ApiRouteChatModel),
-    ModelInfo('qwen-2.5-72b-instruct', '', ModelTypeConst.LLM,
+    ModelInfo('gemini-2.5-pro', _('Google Gemini 2.5 Pro via API Route'), ModelTypeConst.LLM,
+              api_route_llm_credential, ApiRouteChatModel),
+    ModelInfo('gemini-2.5-flash', _('Google Gemini 2.5 Flash via API Route'), ModelTypeConst.LLM,
+              api_route_llm_credential, ApiRouteChatModel),
+    ModelInfo('qwen-2.5-72b-instruct', _('Qwen 2.5 72B via API Route'), ModelTypeConst.LLM,
               api_route_llm_credential, ApiRouteChatModel),
 ]
 
@@ -48,7 +52,7 @@ model_info_manage = (
     ModelInfoManage.builder()
     .append_model_info_list(model_info_list)
     .append_default_model_info(
-        ModelInfo('gpt-4o', _('OpenAI GPT-4o via API Route'), ModelTypeConst.LLM,
+        ModelInfo('deepseek-chat', _('DeepSeek-V3 via API Route'), ModelTypeConst.LLM,
                   api_route_llm_credential, ApiRouteChatModel))
     .append_model_info_list(model_info_embedding_list)
     .append_default_model_info(model_info_embedding_list[0])
